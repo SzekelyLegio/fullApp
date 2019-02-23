@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@drawable/goodbg"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="70dp"
+        app:srcCompat="@drawable/newtitle" />
+
+    <EditText
+        android:id="@+id/editTextID"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="8dp"
+        android:ems="10"
+        android:background="#11000000"
+        android:inputType="textPersonName"
+        android:hint="Írd be a vonalkódot" />
+    <TextView
+        android:id="@+id/success_text"
+
+        android:visibility="invisible"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="Termék megadása sikeres"
+        android:background="#01DF01"
+        android:layout_width="340dp"
+        android:layout_height="50dp" />
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="60dp"
+        android:src="@drawable/searchicon"
+        android:layout_height="50dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="100dp"
+         />
+    <ImageButton
+        android:id="@+id/okButton"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="270dp"
+        android:src="@drawable/pipegood"
+        android:layout_width="60dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="145dp"
+        android:textColor="#fff"
+        android:background="#11000000"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="160dp"
+        android:layout_width="145dp"
+        android:background="#11000000"
+        android:textColor="#fff"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+
+
+</RelativeLayout>
