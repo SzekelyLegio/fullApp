@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getIncomingIntent(){
-        Log.d("Sent code","Incomeing Data");
+        Log.d("Sent code","Incoming Data");
         if(getIntent().hasExtra("Code")){
             String code = getIntent().getStringExtra("Code");
             Log.d("Sent code","Found data");

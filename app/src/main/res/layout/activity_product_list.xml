@@ -9,14 +9,16 @@
 
     <Button
         android:id="@+id/search"
-        android:gravity="center"
+        android:paddingTop="3dp"
+        android:background="@drawable/custom_buttons"
+        android:textStyle="bold"
+        android:textColorHighlight="#B45F04"
         android:text="Termékek"
         android:layout_width="120dp"
         android:layout_height="60dp" />
     <android.support.v7.widget.RecyclerView
         android:paddingTop="100dp"
-
-        android:background="#FF8000"
+        android:background="#FE9A2E"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>

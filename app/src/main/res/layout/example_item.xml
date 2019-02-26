@@ -10,13 +10,16 @@
 
     <RelativeLayout
         android:id="@+id/product_item"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
+        android:background="@drawable/custom_buttons"
         android:layout_height="match_parent"
         android:layout_margin="4dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:src="@mipmap/ic_launcher"
+            android:background="@drawable/icongood"
+            android:src="@drawable/icongood"
+            android:foreground="@drawable/icongood"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="2dp" />
@@ -26,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+
             android:layout_toEndOf="@+id/imageView"
             android:text="Line 1"
             android:textColor="@android:color/black"
@@ -36,6 +40,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/textView"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/imageView"
