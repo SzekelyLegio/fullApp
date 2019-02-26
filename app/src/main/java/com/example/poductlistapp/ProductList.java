@@ -33,7 +33,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
+import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -51,6 +51,7 @@ public class ProductList extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private RequestQueue mQueue;
+    public Context context;
     public  ArrayList<String> productTitle = new ArrayList<>();
     public final ArrayList<ExampleItem> exampleList = new ArrayList<>();
     public Button ListButton;
@@ -66,15 +67,12 @@ public class ProductList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 jsonParse(exampleList);
-                ListButton.setEnabled(false);
+
 
 
 
             }
         });
-
-
-
 
 
 
@@ -111,7 +109,7 @@ public class ProductList extends AppCompatActivity {
             }
         });
 
-        mAdapter = new ExampleAdapter(exampleList);
+        mAdapter = new ExampleAdapter(exampleList,this);
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -122,4 +120,6 @@ public class ProductList extends AppCompatActivity {
 
         mQueue.add(request);
     }
+
+
 }
