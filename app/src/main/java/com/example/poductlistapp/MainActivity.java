@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void ProductActivity(){
-        Intent intent = new Intent(this, ProuctListScreen.class);
+        Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
     }
 
