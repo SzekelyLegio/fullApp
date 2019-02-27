@@ -55,13 +55,16 @@ public class MainActivity extends AppCompatActivity {
         cancelButton=(Button) findViewById(R.id.cancelButton);
         codeInput=(EditText) findViewById(R.id.editTextID);
         resultText =(TextView) findViewById(R.id.success_text);
+
         submitButton.setEnabled(false);
         pipeButton.setEnabled(false);
 
         pipeButton.setVisibility(View.INVISIBLE);
         submitButton.setVisibility(View.INVISIBLE);
+
         getIncomingIntent();
         fillList(codes);
+
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             codeInput.setText(code);
             pipeButton.setEnabled(true);
             pipeButton.setVisibility(View.VISIBLE);
+            resultText.setText("A termék vonalkódja: "+ code);
 
         }else {
             Log.d("Sent code","Data ERROR");

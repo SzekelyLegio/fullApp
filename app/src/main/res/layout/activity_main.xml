@@ -21,9 +21,10 @@
         android:layout_width="190dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/custom_buttons"
         android:layout_marginLeft="8dp"
         android:ems="10"
-        android:background="#11000000"
+
         android:inputType="textPersonName"
         android:hint="Írd be a vonalkódot" />
     <TextView
