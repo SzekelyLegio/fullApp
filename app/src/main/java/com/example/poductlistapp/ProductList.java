@@ -1,10 +1,14 @@
 package com.example.poductlistapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -48,10 +52,12 @@ import java.util.ArrayList;
 
 public class ProductList extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private RequestQueue mQueue;
     public Context context;
+    public String resultText;
+    public EditText searchBar;
     public  ArrayList<String> productTitle = new ArrayList<>();
     public final ArrayList<ExampleItem> exampleList = new ArrayList<>();
     public Button ListButton;
@@ -63,23 +69,36 @@ public class ProductList extends AppCompatActivity {
         mQueue= Volley.newRequestQueue(this);
 
         ListButton =(Button) findViewById(R.id.search);
+        searchBar = (EditText)findViewById(R.id.search_text);
+
+
+        InputMethodManager imm =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(searchBar, InputMethodManager.SHOW_IMPLICIT);
         ListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jsonParse(exampleList);
 
 
 
+                    if(searchBar.getText().toString().toLowerCase().length() < 3){
+                        popUpErrorScreen();
 
+                    }else {
+                        jsonParse(exampleList,searchBar);
+
+
+                    }
             }
         });
+
+
 
 
 
     }
 
 
-    public void jsonParse(final ArrayList<ExampleItem> exampleList){
+    public void jsonParse(final ArrayList<ExampleItem> exampleList,final EditText text){
         String url ="https://api.myjson.com/bins/1hcscm";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -95,8 +114,10 @@ public class ProductList extends AppCompatActivity {
 
                         String quantity = id.getString("age");
                         String unitCost = id.getString("mail");
+                       if(text.getText().toString().toLowerCase().length()>= 3 && productName.toLowerCase().contains(text.getText().toString().toLowerCase()) || text.getText().toString().toLowerCase().length()>= 3 && unitCost.toLowerCase().contains(text.getText().toString().toLowerCase())) {
+                           exampleList.add(new ExampleItem(R.drawable.ic_launcher_background, productName, "DB:" + quantity, unitCost));
 
-                        exampleList.add(new ExampleItem(R.drawable.ic_launcher_background, productName, "DB:"+quantity, unitCost));
+                       }
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -120,6 +141,11 @@ public class ProductList extends AppCompatActivity {
 
         mQueue.add(request);
     }
+    public void popUpErrorScreen(){
+        Intent intent = new Intent(this, Pop.class);
+        startActivity(intent);
 
+
+    }
 
 }

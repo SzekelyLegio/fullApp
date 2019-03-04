@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FE9A2E</item>
         <item name="colorPrimaryDark">#FF8000</item>
-        <item name="colorAccent">#FFFFFF</item>
+        <item name="colorAccent">#000</item>
     </style>
     <style name="AppTheme.CustomTheme">
         <item name="android:windowIsTranslucent">true</item>

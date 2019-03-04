@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     public EditText codeInput;
     public TextView resultText;
     public ArrayList<String> codes = new ArrayList<>();
+    public ArrayList<String> productName = new ArrayList<>();
+    public ArrayList<String> mennyiseg = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setVisibility(View.INVISIBLE);
 
         getIncomingIntent();
-        fillList(codes);
+        fillList(codes,productName,mennyiseg);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,12 +166,13 @@ public class MainActivity extends AppCompatActivity {
             pipeButton.setVisibility(View.VISIBLE);
             resultText.setText("A termék vonalkódja: "+ code);
 
+
         }else {
             Log.d("Sent code","Data ERROR");
         }
     }
 
-    public void fillList(final ArrayList<String> list){
+    public void fillList(final ArrayList<String> list,final ArrayList<String> list2,final ArrayList<String> list3){
 
         String url ="https://api.myjson.com/bins/1hcscm";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -188,6 +191,9 @@ public class MainActivity extends AppCompatActivity {
                         String unitCost = id.getString("mail");
 
                         list.add(unitCost);
+                        list2.add(productName);
+                        list3.add(quantity);
+
                     }
                 }catch (JSONException e){
                     e.printStackTrace();

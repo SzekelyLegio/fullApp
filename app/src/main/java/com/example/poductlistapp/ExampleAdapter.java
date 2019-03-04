@@ -83,9 +83,15 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
 
     }
+    public void filterList(ArrayList<ExampleItem> array){
+        mExampleList = array;
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {
+
         return mExampleList.size();
     }
+
 }
