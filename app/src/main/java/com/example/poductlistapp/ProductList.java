@@ -170,14 +170,14 @@ public class ProductList extends AppCompatActivity {
     public void NewProduct(){
         Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+        overridePendingTransition(R.anim.bottom_top,R.anim.bottom_back);
 
 
     }
     public void backToMain(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+        overridePendingTransition(R.anim.left_in,R.anim.right_out);
 
 
     }
