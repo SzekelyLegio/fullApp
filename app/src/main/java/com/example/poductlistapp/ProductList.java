@@ -62,6 +62,7 @@ public class ProductList extends AppCompatActivity {
     public final ArrayList<ExampleItem> exampleList = new ArrayList<>();
     public Button ListButton;
     public Button resendButton;
+    public Button backButton;
 
 
 
@@ -75,10 +76,16 @@ public class ProductList extends AppCompatActivity {
         ListButton =(Button) findViewById(R.id.search);
         searchBar = (EditText)findViewById(R.id.search_text);
         resendButton=(Button) findViewById(R.id.new_produc_button);
+        backButton=(Button)findViewById(R.id.back_button);
         getIncomingIntent();
 
 
-
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backToMain();
+            }
+        });
         resendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,6 +170,14 @@ public class ProductList extends AppCompatActivity {
     public void NewProduct(){
         Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+
+
+    }
+    public void backToMain(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_in,R.anim.left_out);
 
 
     }

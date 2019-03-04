@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
     public void ProductActivity(){
         Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.right_in,R.anim.left_out);
     }
 
     public void popUpErrorScreen(){

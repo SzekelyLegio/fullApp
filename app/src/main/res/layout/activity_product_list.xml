@@ -32,6 +32,7 @@
     <android.support.v7.widget.RecyclerView
         android:paddingTop="100dp"
         android:focusable="false"
+
         android:paddingBottom="80dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -43,10 +44,21 @@
         android:text="Másik termék kiválasztása"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="9dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/custom_buttons"
-        android:layout_width="240dp"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+    <Button
+        android:id="@+id/back_button"
+        android:text="Vissza"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@+id/new_produc_button"
+        android:layout_marginLeft="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_buttons"
+        android:layout_width="120dp"
         android:layout_height="60dp" />
 
 

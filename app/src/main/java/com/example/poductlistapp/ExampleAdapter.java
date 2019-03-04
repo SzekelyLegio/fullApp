@@ -89,7 +89,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                 intent.putExtra("Code",currentItem.getText3());
 
                 context.startActivity(intent);
+
+
                return true;
+
             }
         });
 
