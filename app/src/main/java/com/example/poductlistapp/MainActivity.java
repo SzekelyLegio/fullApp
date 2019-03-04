@@ -1,5 +1,7 @@
 package com.example.poductlistapp;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue mQueue;
     public Context context;
     public Button cancelButton;
+    static final int RESULT_ENABLE = 1;
+    DevicePolicyManager devicePolicyManager;
+    ComponentName componentName;
     public EditText codeInput;
     public TextView resultText;
     public ArrayList<String> codes = new ArrayList<>();
@@ -63,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
         pipeButton.setVisibility(View.INVISIBLE);
         submitButton.setVisibility(View.INVISIBLE);
+
+        //devicePolicyManager = (DevicePolicyManager) getSystemService(Context. DEVICE_POLICY_SERVICE);
+        //componentName = new ComponentName(MainActivity.this,Controller.class);
+        //boolean active = devicePolicyManager.isAdminActive(componentName);
+
+        //devicePolicyManager.removeActiveAdmin(componentName);
+        //devicePolicyManager.lockNow();
 
         getIncomingIntent();
         fillList(codes,productName,mennyiseg);

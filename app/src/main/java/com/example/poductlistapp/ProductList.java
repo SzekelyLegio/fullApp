@@ -61,6 +61,7 @@ public class ProductList extends AppCompatActivity {
     public  ArrayList<String> productTitle = new ArrayList<>();
     public final ArrayList<ExampleItem> exampleList = new ArrayList<>();
     public Button ListButton;
+    public Button resendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,14 @@ public class ProductList extends AppCompatActivity {
 
         ListButton =(Button) findViewById(R.id.search);
         searchBar = (EditText)findViewById(R.id.search_text);
+        resendButton=(Button) findViewById(R.id.new_produc_button);
 
-
+        resendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewProduct();
+            }
+        });
         InputMethodManager imm =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(searchBar, InputMethodManager.SHOW_IMPLICIT);
         ListButton.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +150,12 @@ public class ProductList extends AppCompatActivity {
     }
     public void popUpErrorScreen(){
         Intent intent = new Intent(this, Pop.class);
+        startActivity(intent);
+
+
+    }
+    public void NewProduct(){
+        Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
 
 

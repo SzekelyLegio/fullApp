@@ -29,9 +29,32 @@
     <android.support.v7.widget.RecyclerView
         android:paddingTop="100dp"
         android:focusable="false"
-
+        android:paddingBottom="80dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+    <Button
+        android:id="@+id/new_produc_button"
+        android:text="Újra"
+        android:textStyle="bold"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_buttons"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/comfirm_button"
+        android:text="Kiválasztás"
+        android:textStyle="bold"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/new_produc_button"
+        android:background="@drawable/custom_buttons"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+
 
 </RelativeLayout>
