@@ -56,6 +56,16 @@
             android:layout_toEndOf="@+id/textView2"
             android:text="Line 3"
             android:textSize="15sp" />
+        <TextView
+            android:id="@+id/choosen_text"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textAlignment="center"
+
+            android:text="Termék kiválasztása sikeres"
+            android:background="#01DF01"
+            android:layout_width="320dp"
+            android:layout_height="50dp" />
 
     </RelativeLayout>
 

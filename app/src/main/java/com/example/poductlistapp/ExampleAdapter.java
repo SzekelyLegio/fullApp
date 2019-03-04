@@ -30,6 +30,8 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         public TextView mTextView1;
         public TextView mTextView2;
         public TextView mTextView3;
+        public  TextView mChooseText;
+
 
 
         public ExampleViewHolder(View itemView) {
@@ -38,6 +40,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
             mTextView3 = itemView.findViewById(R.id.textView3);
+            mChooseText=itemView.findViewById(R.id.choosen_text);
            item = (RelativeLayout) itemView.findViewById(R.id.product_item);
         }
 
@@ -66,16 +69,27 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
         holder.mTextView3.setText(currentItem.getText3());
+        holder.mChooseText.setText("Ez a termék lett kiválasztva: "+currentItem.getText1()+"\n" +"A termék kódja:" + currentItem.getText3());
 
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"Test"+String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"A termék végeleges kiválasztásához tartsd hosszan lenyomva!",Toast.LENGTH_SHORT).show();
+                holder.mChooseText.setVisibility(View.VISIBLE);
 
+
+
+            }
+        });
+
+        holder.item.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
                 Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra("Code",currentItem.getText3());
-                context.startActivity(intent);
 
+                context.startActivity(intent);
+               return true;
             }
         });
 

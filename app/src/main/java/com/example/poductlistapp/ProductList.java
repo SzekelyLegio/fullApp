@@ -63,15 +63,21 @@ public class ProductList extends AppCompatActivity {
     public Button ListButton;
     public Button resendButton;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_product_list);
         mQueue= Volley.newRequestQueue(this);
 
         ListButton =(Button) findViewById(R.id.search);
         searchBar = (EditText)findViewById(R.id.search_text);
         resendButton=(Button) findViewById(R.id.new_produc_button);
+        getIncomingIntent();
+
+
 
         resendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +93,7 @@ public class ProductList extends AppCompatActivity {
 
 
 
-                    if(searchBar.getText().toString().toLowerCase().length() < 3){
+                    if(searchBar.getText().toString().toLowerCase().length() < 3 ){
                         popUpErrorScreen();
 
                     }else {
@@ -160,5 +166,20 @@ public class ProductList extends AppCompatActivity {
 
 
     }
+
+    public void getIncomingIntent(){
+        Log.d("Sent code","Incoming Data");
+        if(getIntent().hasExtra("Code")){
+            String code = getIntent().getStringExtra("Code");
+            Log.d("Sent code","Found data");
+            searchBar.setText(code);
+
+
+        }else {
+            Log.d("Sent code","Data ERROR");
+        }
+    }
+
+
 
 }
