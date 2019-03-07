@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ProductList">
+
+    <Button
+        android:id="@+id/search"
+        android:paddingTop="3dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_buttons"
+        android:textStyle="bold"
+        android:textColorHighlight="#B45F04"
+        android:text="Termékek"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+
+    <EditText
+        android:id="@+id/search_text"
+        android:layout_toEndOf="@id/search"
+        android:layout_margin="15dp"
+        android:hint="Keress rá a termékre"
+        android:textColor="#2E2EFE"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:layout_width="250dp"
+        android:layout_height="60dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:paddingTop="100dp"
+        android:focusable="false"
+
+        android:paddingBottom="80dp"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+    <Button
+        android:id="@+id/new_produc_button"
+        android:text="Másik termék kiválasztása"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="9dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_buttons"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+    <Button
+        android:id="@+id/back_button"
+        android:text="Vissza"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@+id/new_produc_button"
+        android:layout_marginLeft="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_buttons"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
+
+
+</RelativeLayout>
